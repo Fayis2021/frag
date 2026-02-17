@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
                     fontStyle: 'italic',
                     transition: 'color 0.4s ease'
                 }}>
-                    ESSENCE OF LIFE
+                    DUA FRAGRANCE
                 </Link>
 
                 {/* Desktop Menu */}

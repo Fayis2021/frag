@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '5rem', marginBottom: '6rem' }}>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-display)', color: 'var(--color-saffron)', fontStyle: 'italic', letterSpacing: '0.05em' }}>ESSENCE OF LIFE</h3>
+                        <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-display)', color: 'var(--color-saffron)', fontStyle: 'italic', letterSpacing: '0.05em' }}>DUA FRAGRANCE</h3>
                         <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, fontSize: '0.95rem' }}>
                             Crafting sovereign fragrances that honor the rich tapestry of Indian heritage. Since 1920.
                         </p>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '3rem', textAlign: 'center', fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em' }}>
-                    <p>&copy; {new Date().getFullYear()} ESSENCE OF LIFE ARTISAN PERFUMERY. ALL RIGHTS RESERVED.</p>
+                    <p>&copy; {new Date().getFullYear()} DUA FRAGRANCE ARTISAN PERFUMERY. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </footer>

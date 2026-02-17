@@ -39,7 +39,7 @@ const About: React.FC = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'var(--color-black)', lineHeight: 1.9, fontWeight: 400 }}>
-                            Founded in 1920 amidst the vibrant landscapes of India, <span className="text-gradient" style={{ fontWeight: 600 }}>Essence of Life</span> began with a singular obsession:
+                            Founded in 1920 amidst the vibrant landscapes of India, <span className="text-gradient" style={{ fontWeight: 600 }}>Dua Fragrance</span> began with a singular obsession:
                             to distill the complex, majestic soul of our land into liquid art.
                         </p>
                         <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'var(--color-gray)', lineHeight: 1.9 }}>

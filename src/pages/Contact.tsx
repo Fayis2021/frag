@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div>
                             <h4 style={{ color: 'var(--color-rose-gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem' }}>Digital Inquiries</h4>
-                            <p style={{ fontSize: '1.2rem', color: 'var(--color-black)', marginBottom: '0.5rem' }}>concierge@essenceoflife.in</p>
+                            <p style={{ fontSize: '1.2rem', color: 'var(--color-black)', marginBottom: '0.5rem' }}>concierge@duafragrance.in</p>
                             <p style={{ fontSize: '1.2rem', color: 'var(--color-black)' }}>+91 11 4050 6070</p>
                         </div>
                         <div>
