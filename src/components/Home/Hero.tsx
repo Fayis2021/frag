@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import heroVideo from '../../assets/videos/7815734-hd_1920_1080_25fps.mp4';
 
 const Hero: React.FC = () => {
+    const [videoLoaded, setVideoLoaded] = React.useState(false);
+
     return (
         <section style={{
             position: 'relative',
@@ -21,31 +23,54 @@ const Hero: React.FC = () => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: 1
+                zIndex: 1,
+                background: 'var(--gradient-dark)' // Branded fallback
             }}>
-                <video
+                {/* Poster Image while loading */}
+                {!videoLoaded && (
+                    <img
+                        src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        alt=""
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            zIndex: 1
+                        }}
+                    />
+                )}
+                <motion.video
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
+                    onLoadedData={() => setVideoLoaded(true)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: videoLoaded ? 1 : 0 }}
+                    transition={{ duration: 1.5 }}
                     style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        opacity: 1.0, // Maximum brightness
-                        display: 'block'
+                        display: 'block',
+                        position: 'relative',
+                        zIndex: 2
                     }}
                 >
                     <source src={heroVideo} type="video/mp4" />
-                </video>
+                </motion.video>
                 <div style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)', // Lighter overlay
-                    zIndex: 2
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%)',
+                    zIndex: 3
                 }}></div>
             </div>
 

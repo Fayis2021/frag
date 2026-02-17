@@ -55,6 +55,11 @@ const VideoShowcase: React.FC = () => {
                                 loop
                                 muted
                                 playsInline
+                                preload="auto"
+                                poster={index === 0
+                                    ? "https://images.unsplash.com/photo-1615485243306-bf254249a556?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    : "https://images.unsplash.com/photo-1512423175375-a3c3b06996d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                }
                                 style={{
                                     width: '100%',
                                     height: '100%',
