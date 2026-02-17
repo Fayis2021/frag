@@ -3,6 +3,7 @@ import Hero from '../components/Home/Hero';
 import RecentlyArrived from '../components/Home/RecentlyArrived';
 import FeaturedProducts from '../components/Home/FeaturedProducts';
 import ScentNotes from '../components/Home/ScentNotes';
+import VideoShowcase from '../components/Home/VideoShowcase';
 import Testimonials from '../components/Home/Testimonials';
 
 const Home: React.FC = () => {
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
             <RecentlyArrived />
             <FeaturedProducts />
             <ScentNotes />
+            <VideoShowcase />
             {/* Philosophy Section */}
             <section style={{ padding: '8rem 0', backgroundColor: 'var(--color-white)', textAlign: 'center' }}>
                 <div className="container" style={{ maxWidth: '800px' }}>

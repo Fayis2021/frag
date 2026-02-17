@@ -2,28 +2,32 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../UI/Button';
 
-// Placeholder data since image generation failed/is pending
+import midnightRose from '../../assets/images/midnight_rose.png';
+import mysticOud from '../../assets/images/mystic_oud.png';
+import citrusVerbena from '../../assets/images/citrus_verbena.png';
+
+// Premium product data
 const products = [
     {
         id: 1,
         name: "Midnight Rose",
         description: "A velvety blend of Bulgarian rose and dark amber.",
         price: "$145",
-        color: "#4a0e1c" // Placeholder color
+        image: midnightRose
     },
     {
         id: 2,
-        name: "Oud Mystique",
+        name: "Mystic Oud",
         description: "Rich agarwood paired with smoke and leather notes.",
         price: "$180",
-        color: "#3d2b1f"
+        image: mysticOud
     },
     {
         id: 3,
         name: "Citrus Verbena",
         description: "Sparkling lemon zest with fresh basil and cedar.",
         price: "$120",
-        color: "#9ea836"
+        image: citrusVerbena
     }
 ];
 
@@ -55,33 +59,36 @@ const FeaturedProducts: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="product-card" // Added class for CSS targeting
                             style={{
                                 backgroundColor: 'var(--color-cream)',
                                 borderRadius: 'var(--radius-soft)',
                                 padding: '2.5rem',
-                                textAlign: 'center',
-                                position: 'relative',
                                 overflow: 'hidden',
                                 transition: 'all 0.4s ease',
                                 border: '1px solid transparent'
                             }}
                             whileHover={{ y: -8, borderColor: 'rgba(212, 175, 55, 0.3)', boxShadow: 'var(--shadow-indian)' }}
                         >
-                            {/* Product Placeholder Image */}
+                            {/* Product Image */}
                             <div style={{
                                 width: '100%',
                                 height: '320px',
-                                backgroundColor: product.color,
                                 marginBottom: '2rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                opacity: 0.6,
+                                overflow: 'hidden',
                                 borderRadius: '8px'
                             }}>
-                                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '4.5rem', fontFamily: 'var(--font-display)', fontStyle: 'italic' }}>
-                                    {product.name.charAt(0)}
-                                </span>
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                                    }}
+                                    className="product-image"
+                                />
                             </div>
 
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '0.6rem', color: 'var(--color-royal-blue)' }}>{product.name}</h3>
@@ -96,6 +103,11 @@ const FeaturedProducts: React.FC = () => {
                     ))}
                 </div>
             </div>
+            <style>{`
+                .product-card:hover .product-image {
+                    transform: scale(1.1);
+                }
+            `}</style>
         </section>
     );
 };

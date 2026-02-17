@@ -1,145 +1,150 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
-import Button from '../UI/Button';
-
-const arrivals = [
-    { id: 1, name: "Kashmiri Oud", price: "$210", category: "Exotic Woody", color: "#4a3728", isNew: true },
-    { id: 2, name: "Mughal Rose", price: "$185", category: "Royal Floral", color: "#c21e56", isNew: true },
-    { id: 3, name: "Saffron Mist", price: "$165", category: "Spicy Fresh", color: "#ff9933", isNew: true },
-    { id: 4, name: "Nilgiri Teal", price: "$145", category: "Aromatic Herbs", color: "#008080", isNew: true },
-    { id: 5, name: "Benares Incense", price: "$195", category: "Sacred Smoke", color: "#5d4037", isNew: true },
-    { id: 6, name: "Mysore Sandal", price: "$220", category: "Creamy Wood", color: "#d2b48c", isNew: true },
-];
+import amberGold from '../../assets/images/amber_gold.png';
+import royalOud from '../../assets/images/royal_oud.png';
+import rosePetal from '../../assets/images/rose_petal.png';
+import citrusZest from '../../assets/images/citrus_zest.png';
 
 const RecentlyArrived: React.FC = () => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollRef.current) {
-            const { scrollLeft, clientWidth } = scrollRef.current;
-            const scrollTo = direction === 'left' ? scrollLeft - clientWidth / 2 : scrollLeft + clientWidth / 2;
-            scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    const products = [
+        {
+            id: 1,
+            name: "Amber Gold",
+            category: "Oriental",
+            price: "$120",
+            image: amberGold
+        },
+        {
+            id: 2,
+            name: "Royal Oud",
+            category: "Woody",
+            price: "$150",
+            image: royalOud
+        },
+        {
+            id: 3,
+            name: "Rose Petal",
+            category: "Floral",
+            price: "$110",
+            image: rosePetal
+        },
+        {
+            id: 4,
+            name: "Citrus Zest",
+            category: "Fresh",
+            price: "$95",
+            image: citrusZest
         }
-    };
+    ];
 
     return (
-        <section style={{ padding: '8rem 0', backgroundColor: 'var(--color-cream)', position: 'relative', overflow: 'hidden' }} className="bg-mandala">
+        <section className="recently-arrived" style={{ padding: '8rem 0', backgroundColor: 'var(--color-cream)' }}>
             <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
-                    <div>
-                        <motion.span
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            style={{ color: 'var(--color-saffron)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.85rem' }}
-                        >
-                            Freshly Curated
-                        </motion.span>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            style={{ fontSize: '3rem', color: 'var(--color-royal-blue)', fontStyle: 'italic', marginTop: '0.5rem' }}
-                        >
-                            Recently Arrived
-                        </motion.h2>
-                    </div>
-
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                        <button
-                            onClick={() => scroll('left')}
-                            style={{ width: '50px', height: '50px', borderRadius: '50%', border: '1px solid var(--color-royal-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', backgroundColor: 'transparent', color: 'var(--color-royal-blue)' }}
-                        >
-                            <ChevronLeft size={24} />
-                        </button>
-                        <button
-                            onClick={() => scroll('right')}
-                            style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--color-royal-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', border: 'none', color: 'white' }}
-                        >
-                            <ChevronRight size={24} />
-                        </button>
-                    </div>
+                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        style={{ color: 'var(--color-saffron)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.9rem', fontWeight: 600, display: 'block', marginBottom: '1rem' }}
+                    >
+                        Freshly Curated
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-black)', marginBottom: '1.5rem' }}
+                    >
+                        Recently Arrived
+                    </motion.h2>
+                    <motion.div
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        style={{ width: '80px', height: '2px', backgroundColor: 'var(--color-saffron)', margin: '0 auto' }}
+                    ></motion.div>
                 </div>
 
-                <div
-                    ref={scrollRef}
-                    style={{
-                        display: 'flex',
-                        gap: '2.5rem',
-                        overflowX: 'auto',
-                        paddingBottom: '3rem',
-                        msOverflowStyle: 'none',
-                        scrollbarWidth: 'none',
-                        scrollSnapType: 'x mandatory'
-                    }}
-                    className="hide-scrollbar"
-                >
-                    {arrivals.map((item, index) => (
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '2.5rem'
+                }}>
+                    {products.map((product, index) => (
                         <motion.div
-                            key={item.id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            key={product.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
+                            whileHover={{ y: -10 }}
                             style={{
-                                minWidth: '320px',
-                                backgroundColor: 'var(--color-white)',
-                                borderRadius: 'var(--radius-soft)',
-                                padding: '2rem',
-                                boxShadow: 'var(--shadow-indian)',
-                                scrollSnapAlign: 'start',
-                                position: 'relative'
+                                cursor: 'pointer',
+                                position: 'relative',
+                                background: 'white',
+                                borderRadius: '2px',
+                                overflow: 'hidden',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
                             }}
                         >
-                            {item.isNew && (
+                            <div style={{ position: 'relative', height: '380px', overflow: 'hidden' }}>
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                                />
                                 <div style={{
                                     position: 'absolute',
-                                    top: '1.5rem',
-                                    right: '1.5rem',
-                                    backgroundColor: 'var(--color-saffron)',
-                                    color: 'white',
-                                    padding: '0.4rem 1rem',
-                                    borderRadius: '20px',
-                                    fontSize: '0.75rem',
-                                    fontWeight: 700,
-                                    zIndex: 2
+                                    top: '20px',
+                                    right: '20px',
+                                    backgroundColor: 'white',
+                                    padding: '0.5rem 1rem',
+                                    fontSize: '0.8rem',
+                                    fontWeight: 600,
+                                    letterSpacing: '0.1em',
+                                    textTransform: 'uppercase'
                                 }}>
-                                    NEW arrival
+                                    New
                                 </div>
-                            )}
-
-                            <div style={{
-                                width: '100%',
-                                height: '300px',
-                                backgroundColor: item.color,
-                                borderRadius: '8px',
-                                marginBottom: '1.5rem',
-                                opacity: 0.7,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}>
-                                <span style={{ fontSize: '4rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}>{item.name.charAt(0)}</span>
                             </div>
-
-                            <h3 style={{ fontSize: '1.4rem', color: 'var(--color-royal-blue)', marginBottom: '0.5rem' }}>{item.name}</h3>
-                            <p style={{ color: 'var(--color-gray)', fontSize: '0.9rem', marginBottom: '1.2rem' }}>{item.category}</p>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--color-black)' }}>{item.price}</span>
-                                <Button variant="text" style={{ padding: 0, color: 'var(--color-saffron)' }}>Explore</Button>
+                            <div style={{ padding: '2rem', textAlign: 'center' }}>
+                                <span style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                    {product.category}
+                                </span>
+                                <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.5rem' }}>
+                                    {product.name}
+                                </h3>
+                                <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600, fontSize: '1.2rem' }}>
+                                    {product.price}
+                                </p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </div>
 
-            <style>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+                <div style={{ textAlign: 'center', marginTop: '5rem' }}>
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        style={{
+                            backgroundColor: 'var(--color-black)',
+                            color: 'white',
+                            padding: '1rem 3rem',
+                            fontSize: '0.9rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.2em',
+                            textTransform: 'uppercase',
+                            border: 'none',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        View All New Arrivals
+                    </motion.button>
+                </div>
+            </div>
         </section>
     );
 };

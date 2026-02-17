@@ -44,11 +44,12 @@ const Navbar: React.FC = () => {
                     fontSize: '1.8rem',
                     fontFamily: 'var(--font-display)',
                     fontWeight: 700,
-                    color: scrolled ? 'var(--color-royal-blue)' : (isOpen ? 'var(--color-white)' : 'var(--color-royal-blue)'),
+                    color: scrolled ? 'var(--color-royal-blue)' : 'white',
                     letterSpacing: '0.05em',
-                    fontStyle: 'italic'
+                    fontStyle: 'italic',
+                    transition: 'color 0.4s ease'
                 }}>
-                    L'EAU DE VIE
+                    ESSENCE OF LIFE
                 </Link>
 
                 {/* Desktop Menu */}
@@ -59,7 +60,7 @@ const Navbar: React.FC = () => {
                             to={link.path}
                             style={{
                                 fontSize: '0.9rem',
-                                color: 'var(--color-black)',
+                                color: scrolled ? 'var(--color-black)' : 'white',
                                 fontWeight: 600,
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.15em',
@@ -71,14 +72,14 @@ const Navbar: React.FC = () => {
                         </Link>
                     ))}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginLeft: '1rem' }}>
-                        <ShoppingBag size={22} color="var(--color-royal-blue)" style={{ cursor: 'pointer' }} />
-                        <Button variant="primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.8rem', backgroundColor: 'var(--color-saffron)', border: 'none' }}>Boutique</Button>
+                        <ShoppingBag size={22} color={scrolled ? "var(--color-royal-blue)" : "white"} style={{ cursor: 'pointer', transition: 'color 0.4s ease' }} />
+                        <Button variant="primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.8rem', backgroundColor: 'var(--color-saffron)', border: 'none' }}>Shop</Button>
                     </div>
                 </div>
 
                 {/* Mobile Menu Toggle */}
                 <div className="mobile-toggle" style={{ display: 'none' }}>
-                    <button onClick={() => setIsOpen(!isOpen)} style={{ color: 'var(--color-royal-blue)', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <button onClick={() => setIsOpen(!isOpen)} style={{ color: scrolled ? 'var(--color-royal-blue)' : 'white', background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.4s ease' }}>
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
@@ -124,7 +125,7 @@ const Navbar: React.FC = () => {
                             </Link>
                         ))}
                         <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
-                            <Button style={{ width: '100%', backgroundColor: 'var(--color-saffron)', border: 'none' }}>Visit Our Boutique</Button>
+                            <Button style={{ width: '100%', backgroundColor: 'var(--color-saffron)', border: 'none' }}>Visit Our Shop</Button>
                         </div>
                     </motion.div>
                 )}
