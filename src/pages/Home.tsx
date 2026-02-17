@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Home/Hero';
 import RecentlyArrived from '../components/Home/RecentlyArrived';
 import FeaturedProducts from '../components/Home/FeaturedProducts';
+import BestSeller from '../components/Home/BestSeller';
 import ScentNotes from '../components/Home/ScentNotes';
 import VideoShowcase from '../components/Home/VideoShowcase';
 import Testimonials from '../components/Home/Testimonials';
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
             <RecentlyArrived />
             <GenderCollection />
             <FeaturedProducts />
+            <BestSeller />
             <ScentNotes />
             <VideoShowcase />
             {/* Philosophy Section */}
