@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import heroVideo from '../../assets/videos/7815734-hd_1920_1080_25fps.mp4';
+import heroPlaceholder from '../../assets/images/image.png';
 
 const Hero: React.FC = () => {
     const [videoLoaded, setVideoLoaded] = React.useState(false);
@@ -29,12 +30,13 @@ const Hero: React.FC = () => {
                 {/* Poster Image while loading */}
                 {!videoLoaded && (
                     <img
-                        src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                        src={heroPlaceholder}
                         alt=""
                         style={{
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
+                            objectPosition: 'center',
                             position: 'absolute',
                             top: 0,
                             left: 0,
