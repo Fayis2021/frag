@@ -161,9 +161,7 @@ const RecentlyArrived: React.FC = () => {
                                             zIndex: 2
                                         }}>New Arrival</div>
 
-                                        <motion.img
-                                            whileHover={{ scale: 1.1, rotate: 2 }}
-                                            transition={{ type: 'spring', stiffness: 200 }}
+                                        <img
                                             src={product.image}
                                             alt={product.name}
                                             style={{ width: '100%', height: '100%', objectFit: 'contain' }}
