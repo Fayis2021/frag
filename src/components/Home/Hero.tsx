@@ -134,11 +134,11 @@ const Hero: React.FC = () => {
                     style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}
                 >
                     <motion.button
-                        whileHover={{ scale: 1.05, backgroundColor: 'white', color: 'black' }}
+                        whileHover={{ scale: 1.05, backgroundColor: 'var(--color-white)', color: 'var(--color-black)' }}
                         whileTap={{ scale: 0.95 }}
                         style={{
-                            backgroundColor: 'white',
-                            color: 'black',
+                            backgroundColor: 'var(--color-rose-gold)',
+                            color: 'var(--color-black)',
                             padding: '1.1rem 3.5rem',
                             fontSize: '0.85rem',
                             fontWeight: 600,
