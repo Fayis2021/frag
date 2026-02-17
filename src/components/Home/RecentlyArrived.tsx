@@ -7,34 +7,14 @@ import citrusZest from '../../assets/images/citrus_zest.png';
 
 const RecentlyArrived: React.FC = () => {
     const products = [
-        {
-            id: 1,
-            name: "Amber Gold",
-            category: "Oriental",
-            price: "$120",
-            image: amberGold
-        },
-        {
-            id: 2,
-            name: "Royal Oud",
-            category: "Woody",
-            price: "$150",
-            image: royalOud
-        },
-        {
-            id: 3,
-            name: "Rose Petal",
-            category: "Floral",
-            price: "$110",
-            image: rosePetal
-        },
-        {
-            id: 4,
-            name: "Citrus Zest",
-            category: "Fresh",
-            price: "$95",
-            image: citrusZest
-        }
+        { id: 1, name: "Amber Gold", category: "Oriental", price: "$120", image: amberGold },
+        { id: 2, name: "Royal Oud", category: "Woody", price: "$150", image: royalOud },
+        { id: 3, name: "Rose Petal", category: "Floral", price: "$110", image: rosePetal },
+        { id: 4, name: "Citrus Zest", category: "Fresh", price: "$95", image: citrusZest },
+        { id: 5, name: "Midnight Oud", category: "Exotic", price: "$160", image: royalOud },
+        { id: 6, name: "Saffron Sun", category: "Warm", price: "$130", image: amberGold },
+        { id: 7, name: "Velvet Rose", category: "Floral", price: "$115", image: rosePetal },
+        { id: 8, name: "Ocean Breeze", category: "Fresh", price: "$90", image: citrusZest },
     ];
 
     return (
@@ -68,28 +48,34 @@ const RecentlyArrived: React.FC = () => {
                 </div>
 
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '2.5rem'
-                }}>
+                    display: 'flex',
+                    overflowX: 'auto',
+                    gap: '2.5rem',
+                    padding: '1rem 2rem 3rem',
+                    scrollSnapType: 'x mandatory',
+                    scrollbarWidth: 'none', // Firefox
+                    msOverflowStyle: 'none' // IE/Edge
+                }} className="horizontal-scroll">
                     {products.map((product, index) => (
                         <motion.div
                             key={product.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.05 }}
                             whileHover={{ y: -10 }}
                             style={{
+                                flex: '0 0 320px',
+                                scrollSnapAlign: 'start',
                                 cursor: 'pointer',
                                 position: 'relative',
                                 background: 'white',
-                                borderRadius: '2px',
+                                borderRadius: '4px',
                                 overflow: 'hidden',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                                boxShadow: '0 10px 40px rgba(0,0,0,0.08)'
                             }}
                         >
-                            <div style={{ position: 'relative', height: '380px', overflow: 'hidden' }}>
+                            <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
                                 <img
                                     src={product.image}
                                     alt={product.name}
@@ -113,10 +99,10 @@ const RecentlyArrived: React.FC = () => {
                                 <span style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                                     {product.category}
                                 </span>
-                                <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.5rem' }}>
+                                <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.4rem', fontFamily: 'var(--font-display)' }}>
                                     {product.name}
                                 </h3>
-                                <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600, fontSize: '1.2rem' }}>
+                                <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600, fontSize: '1.1rem' }}>
                                     {product.price}
                                 </p>
                             </div>
@@ -124,15 +110,15 @@ const RecentlyArrived: React.FC = () => {
                     ))}
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '5rem' }}>
+                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         style={{
                             backgroundColor: 'var(--color-black)',
                             color: 'white',
-                            padding: '1rem 3rem',
-                            fontSize: '0.9rem',
+                            padding: '1.1rem 3.5rem',
+                            fontSize: '0.85rem',
                             fontWeight: 600,
                             letterSpacing: '0.2em',
                             textTransform: 'uppercase',
@@ -145,6 +131,12 @@ const RecentlyArrived: React.FC = () => {
                     </motion.button>
                 </div>
             </div>
+
+            <style>{`
+                .horizontal-scroll::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </section>
     );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Button from '../UI/Button';
 import heroVideo from '../../assets/videos/7815734-hd_1920_1080_25fps.mp4';
 
 const Hero: React.FC = () => {
@@ -53,54 +52,98 @@ const Hero: React.FC = () => {
             {/* Content Layer */}
             <div className="container" style={{ textAlign: 'center', color: 'var(--color-white)', zIndex: 10, position: 'relative' }}>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 1.2 }}
                 >
-                    <span style={{ color: 'var(--color-saffron)', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
-                        The Heritage Collection
+                    <span style={{
+                        color: 'rgba(255,255,255,0.8)',
+                        fontWeight: 500,
+                        letterSpacing: '0.4em',
+                        textTransform: 'uppercase',
+                        fontSize: '0.8rem',
+                        display: 'block',
+                        marginBottom: '1.5rem'
+                    }}>
+                        Handcrafted Elegance
                     </span>
                     <h1
                         style={{
                             fontFamily: 'var(--font-display)',
-                            fontSize: 'clamp(3rem, 7vw, 5.5rem)',
-                            margin: '1rem 0 2rem',
+                            fontSize: 'clamp(3.5rem, 8vw, 6rem)',
+                            margin: '0 0 2rem',
                             color: 'white',
-                            lineHeight: 1.1,
-                            textShadow: '0 2px 10px rgba(0,0,0,0.3)' // Added subtle shadow for readability
+                            lineHeight: 1.05,
+                            fontWeight: 400,
+                            textShadow: '0 10px 30px rgba(0,0,0,0.2)'
                         }}
                     >
-                        Incense of the <br /> <span style={{ color: 'var(--color-saffron)' }}>Mystic East</span>
+                        The Art of <br /> Rare Scents
                     </h1>
                 </motion.div>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.4 }}
                     style={{
-                        fontSize: 'clamp(1.1rem, 2vw, 1.25rem)',
-                        marginBottom: '4rem',
-                        maxWidth: '650px',
+                        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                        marginBottom: '4.5rem',
+                        maxWidth: '600px',
                         marginLeft: 'auto',
                         marginRight: 'auto',
-                        color: 'rgba(255,255,255,0.95)',
+                        color: 'rgba(255,255,255,0.75)',
                         lineHeight: 1.8,
-                        textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+                        fontWeight: 300,
+                        letterSpacing: '0.02em'
                     }}
                 >
-                    Exquisite hand-blended fragrances inspired by ancient royalty.
-                    Capturing the essence of tradition in every drop.
+                    Discover timeless fragrances inspired by ancient traditions,
+                    refined for the sophisticated modern lifestyle.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                    style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}
                 >
-                    <Button variant="primary" style={{ backgroundColor: 'var(--color-royal-blue)', borderColor: 'var(--color-royal-blue)' }}>Explore Collections</Button>
-                    <Button variant="outline" style={{ borderColor: 'white', color: 'white' }}>The Craft</Button>
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        style={{
+                            backgroundColor: 'white',
+                            color: 'black',
+                            padding: '1.1rem 3.5rem',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.15em',
+                            textTransform: 'uppercase',
+                            border: 'none',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        Shop Now
+                    </motion.button>
+                    <motion.button
+                        whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
+                        whileTap={{ scale: 0.98 }}
+                        style={{
+                            backgroundColor: 'transparent',
+                            color: 'white',
+                            padding: '1.1rem 3.5rem',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.15em',
+                            textTransform: 'uppercase',
+                            border: '1px solid rgba(255,255,255,0.4)',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        Our Story
+                    </motion.button>
                 </motion.div>
             </div>
         </section>

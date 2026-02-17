@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import video1 from '../../assets/videos/7815883-hd_1080_1920_25fps.mp4';
-import video2 from '../../assets/videos/5084552-uhd_4096_2160_24fps.mp4';
+import video1 from '../../assets/videos/10322273-hd_2160_3838_30fps.mp4';
+import video2 from '../../assets/videos/13230731_1080_1920_30fps.mp4';
 
 const VideoShowcase: React.FC = () => {
     const sections = [
@@ -13,8 +13,8 @@ const VideoShowcase: React.FC = () => {
         },
         {
             video: video2,
-            title: "Royal Essence",
-            description: "Experience the majestic allure of fragrances inspired by ancient royalty. Our UHD collection captures the visual and olfactory brilliance of the most exquisite botanical extracts and rare minerals.",
+            title: "Ethical Sourcing",
+            description: "We partner with local sustainable farms across India to harvest rare botanicals at their peak potency. Our commitment to the earth is as deep as the scents we create.",
             videoLeft: false
         }
     ];
@@ -39,13 +39,28 @@ const VideoShowcase: React.FC = () => {
                         }}
                     >
                         {/* Video Column */}
-                        <div style={{ flex: '1 1 500px', position: 'relative', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+                        <div style={{
+                            flex: '1 1 450px',
+                            maxHeight: '600px',
+                            position: 'relative',
+                            borderRadius: '1rem',
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
                             <video
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: section.videoLeft ? '9/16' : '16/9', objectFit: 'cover' }}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'block',
+                                    objectFit: 'cover'
+                                }}
                             >
                                 <source src={section.video} type="video/mp4" />
                             </video>
