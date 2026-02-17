@@ -2,10 +2,53 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
 
+import foot from '../../assets/images/footer.webp';
+
 const Footer: React.FC = () => {
     return (
-        <footer style={{ backgroundColor: 'var(--color-black)', padding: '8rem 0 4rem', color: 'var(--color-white)', position: 'relative' }}>
-            <div className="container">
+        <footer style={{
+            backgroundColor: 'var(--color-black)',
+            padding: '8rem 0 4rem',
+            color: 'var(--color-white)',
+            position: 'relative',
+            overflow: 'hidden'
+        }}>
+            {/* Right-aligned Background Image */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '60%',
+                height: '100%',
+                backgroundImage: `url(${foot})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                zIndex: 0,
+                opacity: 0.5
+            }}>
+                {/* Gradient Mask for seamless blending */}
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to right, var(--color-black) 0%, transparent 100%)',
+                }}></div>
+            </div>
+
+            {/* General Overlay */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                zIndex: 0
+            }}></div>
+
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '4rem', marginBottom: '6rem' }}>
 
                     {/* Brand Column */}

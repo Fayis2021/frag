@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Wind, Gem, Droplet } from 'lucide-react';
+import scentStructure from '../../assets/images/scent_structure.png';
 
 const ScentNotes: React.FC = () => {
     const layers = [
@@ -42,7 +43,7 @@ const ScentNotes: React.FC = () => {
             }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
 
                     {/* Text Content */}
                     <motion.div
@@ -117,64 +118,21 @@ const ScentNotes: React.FC = () => {
                     >
                         <div style={{
                             width: '100%',
-                            height: '700px',
-                            backgroundColor: 'var(--color-dark-gray)',
-                            borderRadius: '200px 200px 0 0',
+                            borderRadius: '32px',
                             overflow: 'hidden',
-                            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                            position: 'relative',
-                            border: '1px solid rgba(255,255,255,0.05)'
+                            boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
+                            position: 'relative'
                         }}>
-                            <div style={{
-                                position: 'absolute',
-                                inset: 0,
-                                background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%)',
-                                zIndex: 1
-                            }} />
                             <img
-                                src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                src={scentStructure}
                                 alt="Scent extraction process"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                style={{ width: '100%', height: 'auto', display: 'block' }}
                             />
 
-                            {/* Floating Badge */}
-                            <motion.div
-                                initial={{ y: 20, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                                style={{
-                                    position: 'absolute',
-                                    bottom: '3rem',
-                                    left: '50%',
-                                    transform: 'translateX(-50%)',
-                                    zIndex: 2,
-                                    backgroundColor: 'rgba(10,10,10,0.8)',
-                                    backdropFilter: 'blur(10px)',
-                                    padding: '1.5rem 3rem',
-                                    borderRadius: '100px',
-                                    border: '1px solid rgba(212, 175, 55, 0.3)',
-                                    textAlign: 'center',
-                                    width: '80%'
-                                }}
-                            >
-                                <p style={{ color: 'var(--color-rose-gold)', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>Heritage</p>
-                                <p style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: '1.2rem', margin: 0 }}>Crafted in limited batches</p>
-                            </motion.div>
+
                         </div>
 
-                        {/* Decorative Orbit */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '110%',
-                            height: '60%',
-                            borderRadius: '50%',
-                            border: '1px solid rgba(212, 175, 55, 0.1)',
-                            zIndex: -1,
-                            pointerEvents: 'none'
-                        }} />
+
                     </motion.div>
 
                 </div>
