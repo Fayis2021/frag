@@ -81,7 +81,7 @@ const VideoShowcase: React.FC = () => {
 
                         {/* Text Column */}
                         <div style={{ flex: '1 1 400px' }}>
-                            <span style={{ color: 'var(--color-saffron)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '1rem' }}>
+                            <span style={{ color: 'var(--color-rose-gold)', textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '1rem' }}>
                                 The Fragrance Story
                             </span>
                             <h2 style={{ fontFamily: 'var(--font-display)', color: 'white', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
@@ -91,12 +91,12 @@ const VideoShowcase: React.FC = () => {
                                 {section.description}
                             </p>
                             <motion.button
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.05, backgroundColor: 'var(--color-rose-gold)', color: 'var(--color-black)' }}
                                 whileTap={{ scale: 0.95 }}
                                 style={{
                                     backgroundColor: 'transparent',
-                                    border: '1px solid var(--color-saffron)',
-                                    color: 'var(--color-saffron)',
+                                    border: '1px solid var(--color-rose-gold)',
+                                    color: 'var(--color-rose-gold)',
                                     padding: '0.75rem 2rem',
                                     borderRadius: '50px',
                                     cursor: 'pointer',

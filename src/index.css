@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
-  --color-black: #1a1515;
+  --color-black: #0a0a0a;
+  --color-dark-gray: #1a1a1a;
   --color-rose: #f8e1e7;
   --color-dusty-rose: #d4a5a5;
-  --color-rose-gold: #b76e79;
-  --color-cream: #fffaf0;
+  --color-rose-gold: #D4AF37;
+  /* Updated to Metallic Gold as per user request */
+  --color-cream: #faf9f6;
   --color-white: #ffffff;
-  --color-gray: #666666;
-  --color-light-gray: #f2f2f2;
-  --color-light-rose: #fff0f3;
+  --color-gray: #a0a0a0;
+  --color-light-gray: #2a2a2a;
+  --color-light-rose: #2d1b1e;
   --color-saffron: #f4a261;
-  --color-royal-blue: #264653;
+  --color-royal-blue: #D4AF37;
+  /* Replaced royal blue with the bronze/gold for black theme */
   --color-terracotta: #e76f51;
 
   --font-display: 'Cormorant Garamond', serif;
@@ -19,12 +22,12 @@
   --radius-soft: 16px;
   --radius-round: 30px;
 
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.08);
-  --shadow-indian: 0 30px 60px rgba(38, 70, 83, 0.12);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.7);
+  --shadow-indian: 0 30px 60px rgba(212, 175, 55, 0.1);
 
-  --gradient-gold: linear-gradient(135deg, #b76e79 0%, #d4a5a5 100%);
-  --gradient-dark: linear-gradient(135deg, #1a1515 0%, #264653 100%);
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #1a1a1a 100%);
+  --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 * {
@@ -35,8 +38,9 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-cream);
-  color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  /* Using cream for text for a softer luxury look */
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -92,7 +96,7 @@ button {
 
 /* Utilities */
 .bg-mandala {
-  background-image: radial-gradient(circle at 2px 2px, rgba(183, 110, 121, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
   background-size: 40px 40px;
 }
 

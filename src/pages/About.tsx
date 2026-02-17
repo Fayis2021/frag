@@ -7,7 +7,7 @@ const About: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ paddingTop: '100px', minHeight: '100vh', backgroundColor: 'var(--color-cream)' }}
+            style={{ paddingTop: '100px', minHeight: '100vh', backgroundColor: 'var(--color-black)' }}
             className="bg-mandala"
         >
             <div className="container" style={{ padding: '6rem 2rem' }}>
@@ -16,7 +16,7 @@ const About: React.FC = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        style={{ color: 'var(--color-terracotta)', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.85rem' }}
+                        style={{ color: 'var(--color-rose-gold)', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.85rem' }}
                     >
                         A Century of Essence
                     </motion.span>
@@ -25,7 +25,7 @@ const About: React.FC = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginTop: '1.5rem', color: 'var(--color-black)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}
+                        style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginTop: '1.5rem', color: 'var(--color-white)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}
                     >
                         Our Royal Heritage
                     </motion.h1>
@@ -38,15 +38,15 @@ const About: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'var(--color-black)', lineHeight: 1.9, fontWeight: 400 }}>
+                        <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'var(--color-white)', lineHeight: 1.9, fontWeight: 400 }}>
                             Founded in 1920 amidst the vibrant landscapes of India, <span className="text-gradient" style={{ fontWeight: 600 }}>Dua Fragrance</span> began with a singular obsession:
                             to distill the complex, majestic soul of our land into liquid art.
                         </p>
-                        <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'var(--color-gray)', lineHeight: 1.9 }}>
+                        <p style={{ marginBottom: '2.5rem', fontSize: '1.25rem', color: 'rgba(255, 255, 255, 0.65)', lineHeight: 1.9 }}>
                             We believe a fragrance is a bridge between the physical and the spiritual. It's the silent narrator
                             of your legacy, a scent that commands respect and inspires awe.
                         </p>
-                        <p style={{ fontSize: '1.25rem', color: 'var(--color-gray)', lineHeight: 1.9 }}>
+                        <p style={{ fontSize: '1.25rem', color: 'rgba(255, 255, 255, 0.65)', lineHeight: 1.9 }}>
                             By merging ancient Ayurvedic extraction techniques with modern French refinement,
                             we create olfactory masterpieces that are both timeless and avant-garde.
                         </p>
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                         transition={{ duration: 1 }}
                         style={{ position: 'relative' }}
                     >
-                        <div style={{ padding: '1rem', border: '1px solid rgba(183, 110, 121, 0.2)', borderRadius: 'var(--radius-soft)' }}>
+                        <div style={{ padding: '1rem', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: 'var(--radius-soft)' }}>
                             <img
                                 src="https://images.unsplash.com/photo-1596434407519-21b44ec65768?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                                 alt="Heritage Bottles"
@@ -75,9 +75,9 @@ const About: React.FC = () => {
                                 position: 'absolute',
                                 bottom: '-30px',
                                 right: '-30px',
-                                backgroundColor: 'var(--color-royal-blue)',
+                                backgroundColor: 'var(--color-rose-gold)',
                                 padding: '2.5rem',
-                                color: 'white',
+                                color: 'var(--color-black)',
                                 borderRadius: '12px',
                                 boxShadow: 'var(--shadow-medium)'
                             }}
@@ -93,7 +93,7 @@ const About: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '6rem', color: 'var(--color-black)', fontStyle: 'italic' }}
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '6rem', color: 'var(--color-white)', fontStyle: 'italic' }}
                     >
                         Pillars of the House
                     </motion.h2>
@@ -112,15 +112,15 @@ const About: React.FC = () => {
                                 whileHover={{ y: -10 }}
                                 style={{
                                     padding: '5rem 3rem',
-                                    backgroundColor: 'var(--color-white)',
+                                    backgroundColor: 'var(--color-dark-gray)',
                                     borderRadius: 'var(--radius-soft)',
                                     boxShadow: 'var(--shadow-soft)',
-                                    border: '1px solid rgba(183, 110, 121, 0.05)'
+                                    border: '1px solid rgba(212, 175, 55, 0.1)'
                                 }}
                             >
                                 <div style={{ fontSize: '3.5rem', marginBottom: '2rem' }}>{item.icon}</div>
-                                <h3 style={{ fontSize: '1.7rem', marginBottom: '1.5rem', color: 'var(--color-black)' }}>{item.title}</h3>
-                                <p style={{ color: 'var(--color-gray)', fontSize: '1.1rem', lineHeight: 1.7 }}>{item.desc}</p>
+                                <h3 style={{ fontSize: '1.7rem', marginBottom: '1.5rem', color: 'var(--color-rose-gold)' }}>{item.title}</h3>
+                                <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '1.1rem', lineHeight: 1.7 }}>{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>

@@ -17,14 +17,14 @@ const RecentlyArrived: React.FC = () => {
     };
 
     return (
-        <section className="recently-arrived" style={{ padding: '8rem 0', backgroundColor: 'var(--color-cream)' }}>
+        <section className="recently-arrived" style={{ padding: '8rem 0', backgroundColor: 'var(--color-black)' }}>
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        style={{ color: 'var(--color-saffron)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.9rem', fontWeight: 600, display: 'block', marginBottom: '1rem' }}
+                        style={{ color: 'var(--color-rose-gold)', textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.9rem', fontWeight: 600, display: 'block', marginBottom: '1rem' }}
                     >
                         Freshly Curated
                     </motion.span>
@@ -33,7 +33,7 @@ const RecentlyArrived: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-black)', marginBottom: '1.5rem' }}
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-white)', marginBottom: '1.5rem' }}
                     >
                         Recently Arrived
                     </motion.h2>
@@ -42,7 +42,7 @@ const RecentlyArrived: React.FC = () => {
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.4, duration: 0.8 }}
-                        style={{ width: '80px', height: '2px', backgroundColor: 'var(--color-saffron)', margin: '0 auto' }}
+                        style={{ width: '80px', height: '2px', backgroundColor: 'var(--color-rose-gold)', margin: '0 auto' }}
                     ></motion.div>
                 </div>
             </div>
@@ -81,10 +81,11 @@ const RecentlyArrived: React.FC = () => {
                                     scrollSnapAlign: 'start',
                                     cursor: 'pointer',
                                     position: 'relative',
-                                    background: 'white',
+                                    background: 'var(--color-dark-gray)',
                                     borderRadius: '4px',
                                     overflow: 'hidden',
-                                    boxShadow: '0 10px 40px rgba(0,0,0,0.05)'
+                                    boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+                                    border: '1px solid rgba(212, 175, 55, 0.05)'
                                 }}
                             >
                                 <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
@@ -99,13 +100,14 @@ const RecentlyArrived: React.FC = () => {
                                         position: 'absolute',
                                         top: '20px',
                                         right: '20px',
-                                        backgroundColor: 'white',
+                                        backgroundColor: 'var(--color-rose-gold)',
+                                        color: 'var(--color-black)',
                                         padding: '0.5rem 1rem',
                                         fontSize: '0.8rem',
                                         fontWeight: 600,
                                         letterSpacing: '0.1em',
                                         textTransform: 'uppercase',
-                                        boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                                        boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
                                     }}>
                                         New
                                     </div>
@@ -114,10 +116,10 @@ const RecentlyArrived: React.FC = () => {
                                     <span style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                                         {product.category}
                                     </span>
-                                    <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.4rem', fontFamily: 'var(--font-display)' }}>
+                                    <h3 style={{ margin: '0.5rem 0', color: 'var(--color-white)', fontSize: '1.4rem', fontFamily: 'var(--font-display)' }}>
                                         {product.name}
                                     </h3>
-                                    <p style={{ color: 'var(--color-saffron)', fontWeight: 600, fontSize: '1.1rem' }}>
+                                    <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600, fontSize: '1.1rem' }}>
                                         {product.price}
                                     </p>
                                 </div>
@@ -139,7 +141,7 @@ const RecentlyArrived: React.FC = () => {
                             style={{
                                 width: dot === Math.floor(scrollIndex / 4) ? '30px' : '10px',
                                 height: '2px',
-                                backgroundColor: dot === Math.floor(scrollIndex / 4) ? 'var(--color-saffron)' : '#D1D1D1',
+                                backgroundColor: dot === Math.floor(scrollIndex / 4) ? 'var(--color-rose-gold)' : 'rgba(255,255,255,0.1)',
                                 transition: 'all 0.3s ease',
                                 borderRadius: '2px'
                             }}
@@ -154,8 +156,8 @@ const RecentlyArrived: React.FC = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         style={{
-                            backgroundColor: 'var(--color-black)',
-                            color: 'white',
+                            backgroundColor: 'var(--color-rose-gold)',
+                            color: 'var(--color-black)',
                             padding: '1.1rem 3.5rem',
                             fontSize: '0.85rem',
                             fontWeight: 600,

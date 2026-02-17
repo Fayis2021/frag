@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, classNam
       whileTap={{ scale: 0.98 }}
       style={{
         backgroundColor: variant === 'primary' ? 'var(--color-rose-gold)' : 'transparent',
-        color: variant === 'primary' ? 'var(--color-white)' : variant === 'outline' ? 'var(--color-rose-gold)' : 'var(--color-black)',
+        color: variant === 'primary' ? 'var(--color-black)' : variant === 'outline' ? 'var(--color-rose-gold)' : 'var(--color-cream)',
         border: variant === 'outline' ? '1px solid var(--color-rose-gold)' : 'none',
         padding: '0.8rem 2.2rem',
         cursor: 'pointer',

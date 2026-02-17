@@ -25,16 +25,16 @@ const ProductDetailsPage: React.FC = () => {
     const recommendations = products.filter(p => p.id !== product.id).slice(0, 4);
 
     return (
-        <div style={{ backgroundColor: 'var(--color-white)', paddingTop: '80px' }}>
+        <div style={{ backgroundColor: 'var(--color-black)', paddingTop: '80px' }}>
             {/* Breadcrumbs */}
-            <div style={{ padding: '2rem 0', backgroundColor: 'var(--color-cream)' }} className="bg-mandala">
+            <div style={{ padding: '2rem 0', backgroundColor: 'var(--color-dark-gray)' }} className="bg-mandala">
                 <div className="container">
-                    <nav style={{ fontSize: '0.85rem', color: '#888' }}>
-                        <Link to="/" style={{ color: '#888', textDecoration: 'none' }}>Home</Link>
+                    <nav style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)' }}>
+                        <Link to="/" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Home</Link>
                         <span style={{ margin: '0 1rem' }}>/</span>
-                        <Link to="/products" style={{ color: '#888', textDecoration: 'none' }}>Collections</Link>
+                        <Link to="/products" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Collections</Link>
                         <span style={{ margin: '0 1rem' }}>/</span>
-                        <span style={{ color: 'var(--color-black)', fontWeight: 600 }}>{product.name}</span>
+                        <span style={{ color: 'var(--color-rose-gold)', fontWeight: 600 }}>{product.name}</span>
                     </nav>
                 </div>
             </div>
@@ -42,11 +42,11 @@ const ProductDetailsPage: React.FC = () => {
             <ProductDetail product={product} />
 
             {/* Related Products */}
-            <section style={{ padding: '8rem 0', borderTop: '1px solid #eee' }}>
+            <section style={{ padding: '8rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', marginBottom: '1rem' }}>You May Also Like</h2>
-                        <div style={{ width: '50px', height: '2px', backgroundColor: 'var(--color-saffron)', margin: '0 auto' }}></div>
+                        <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', marginBottom: '1rem', color: 'var(--color-white)' }}>You May Also Like</h2>
+                        <div style={{ width: '50px', height: '2px', backgroundColor: 'var(--color-rose-gold)', margin: '0 auto' }}></div>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
@@ -56,12 +56,12 @@ const ProductDetailsPage: React.FC = () => {
                                     whileHover={{ y: -10 }}
                                     style={{ textAlign: 'center' }}
                                 >
-                                    <div style={{ height: '350px', overflow: 'hidden', borderRadius: '4px', marginBottom: '1.5rem', background: 'var(--color-cream)', padding: '1.5rem' }}>
+                                    <div style={{ height: '350px', overflow: 'hidden', borderRadius: '4px', marginBottom: '1.5rem', background: 'var(--color-dark-gray)', padding: '1.5rem', border: '1px solid rgba(212, 175, 55, 0.05)' }}>
                                         <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                                     </div>
-                                    <p style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>{p.category}</p>
-                                    <h3 style={{ color: 'var(--color-black)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>{p.name}</h3>
-                                    <p style={{ color: 'var(--color-saffron)', fontWeight: 600 }}>{p.price}</p>
+                                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>{p.category}</p>
+                                    <h3 style={{ color: 'var(--color-white)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>{p.name}</h3>
+                                    <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600 }}>{p.price}</p>
                                 </motion.div>
                             </Link>
                         ))}

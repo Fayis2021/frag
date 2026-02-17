@@ -35,7 +35,7 @@ const Blog: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ paddingTop: '100px', minHeight: '100vh', backgroundColor: 'var(--color-cream)' }}
+            style={{ paddingTop: '100px', minHeight: '100vh', backgroundColor: 'var(--color-black)' }}
             className="bg-mandala"
         >
             <div className="container" style={{ padding: '6rem 2rem' }}>
@@ -43,7 +43,7 @@ const Blog: React.FC = () => {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        style={{ color: 'var(--color-terracotta)', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.85rem' }}
+                        style={{ color: 'var(--color-rose-gold)', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.85rem' }}
                     >
                         The Journal
                     </motion.span>
@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginTop: '1.5rem', color: 'var(--color-black)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}
+                        style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginTop: '1.5rem', color: 'var(--color-white)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}
                     >
                         Olfactory Stories
                     </motion.h1>
@@ -87,7 +87,8 @@ const Blog: React.FC = () => {
                                         position: 'absolute',
                                         top: '20px',
                                         left: '20px',
-                                        backgroundColor: 'white',
+                                        backgroundColor: 'var(--color-rose-gold)',
+                                        color: 'var(--color-black)',
                                         padding: '0.5rem 1rem',
                                         fontSize: '0.75rem',
                                         fontWeight: 600,
@@ -98,9 +99,9 @@ const Blog: React.FC = () => {
                                         {post.category}
                                     </div>
                                 </div>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--color-gray)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{post.date}</span>
-                                <h2 style={{ fontSize: '1.8rem', color: 'var(--color-black)', margin: '1rem 0', lineHeight: 1.3 }}>{post.title}</h2>
-                                <p style={{ color: 'var(--color-gray)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>{post.excerpt}</p>
+                                <span style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{post.date}</span>
+                                <h2 style={{ fontSize: '1.8rem', color: 'var(--color-white)', margin: '1rem 0', lineHeight: 1.3 }}>{post.title}</h2>
+                                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>{post.excerpt}</p>
                                 <span style={{
                                     color: 'var(--color-rose-gold)',
                                     fontWeight: 700,

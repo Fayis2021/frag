@@ -10,12 +10,12 @@ const Testimonials: React.FC = () => {
     ];
 
     return (
-        <section style={{ padding: '10rem 0', backgroundColor: 'var(--color-cream)' }} className="bg-mandala">
+        <section style={{ padding: '10rem 0', backgroundColor: 'var(--color-black)' }} className="bg-mandala">
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                    <span style={{ color: 'var(--color-saffron)', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem' }}>Patron Voices</span>
-                    <h2 style={{ fontSize: '3rem', color: 'var(--color-royal-blue)', fontStyle: 'italic', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Whispers of Excellence</h2>
-                    <p style={{ color: 'var(--color-gray)', fontSize: '1.1rem' }}>Cherished experiences from our global community.</p>
+                    <span style={{ color: 'var(--color-rose-gold)', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.85rem' }}>Patron Voices</span>
+                    <h2 style={{ fontSize: '3rem', color: 'var(--color-white)', fontStyle: 'italic', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Whispers of Excellence</h2>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem' }}>Cherished experiences from our global community.</p>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
@@ -27,22 +27,22 @@ const Testimonials: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             style={{
-                                backgroundColor: 'var(--color-white)',
+                                backgroundColor: 'var(--color-dark-gray)',
                                 padding: '4rem 3rem',
                                 borderRadius: 'var(--radius-soft)',
                                 textAlign: 'center',
-                                boxShadow: 'var(--shadow-indian)'
+                                border: '1px solid rgba(212, 175, 55, 0.1)'
                             }}
                         >
                             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.4rem', marginBottom: '2rem' }}>
                                 {[...Array(review.rating)].map((_, i) => (
-                                    <Star key={i} size={18} fill="var(--color-saffron)" color="var(--color-saffron)" />
+                                    <Star key={i} size={18} fill="var(--color-rose-gold)" color="var(--color-rose-gold)" />
                                 ))}
                             </div>
-                            <p style={{ fontSize: '1.2rem', color: 'var(--color-black)', marginBottom: '2.5rem', fontStyle: 'italic', lineHeight: 1.8 }}>
+                            <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.8)', marginBottom: '2.5rem', fontStyle: 'italic', lineHeight: 1.8 }}>
                                 "{review.text}"
                             </p>
-                            <h4 style={{ fontSize: '1rem', color: 'var(--color-royal-blue)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 700 }}>
+                            <h4 style={{ fontSize: '1rem', color: 'var(--color-rose-gold)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 700 }}>
                                 — {review.name}
                             </h4>
                         </motion.div>
