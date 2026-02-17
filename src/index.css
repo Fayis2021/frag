@@ -8,14 +8,23 @@
   --color-cream: #fffaf0;
   --color-white: #ffffff;
   --color-gray: #666666;
+  --color-light-gray: #f2f2f2;
   --color-light-rose: #fff0f3;
   --color-saffron: #f4a261;
   --color-royal-blue: #264653;
+  --color-terracotta: #e76f51;
 
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
   --radius-soft: 16px;
   --radius-round: 30px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-indian: 0 30px 60px rgba(38, 70, 83, 0.12);
+
+  --gradient-gold: linear-gradient(135deg, #b76e79 0%, #d4a5a5 100%);
+  --gradient-dark: linear-gradient(135deg, #1a1515 0%, #264653 100%);
 }
 
 * {
@@ -78,5 +87,18 @@ button {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold);
+  background: var(--color-rose-gold);
+}
+
+/* Utilities */
+.bg-mandala {
+  background-image: radial-gradient(circle at 2px 2px, rgba(183, 110, 121, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.text-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -1,37 +1,12 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../UI/Button';
-
-import midnightRose from '../../assets/images/midnight_rose.png';
-import mysticOud from '../../assets/images/mystic_oud.png';
-import citrusVerbena from '../../assets/images/citrus_verbena.png';
-
-// Premium product data
-const products = [
-    {
-        id: 1,
-        name: "Midnight Rose",
-        description: "A velvety blend of Bulgarian rose and dark amber.",
-        price: "$145",
-        image: midnightRose
-    },
-    {
-        id: 2,
-        name: "Mystic Oud",
-        description: "Rich agarwood paired with smoke and leather notes.",
-        price: "$180",
-        image: mysticOud
-    },
-    {
-        id: 3,
-        name: "Citrus Verbena",
-        description: "Sparkling lemon zest with fresh basil and cedar.",
-        price: "$120",
-        image: citrusVerbena
-    }
-];
+import { Link } from 'react-router-dom';
+import { products } from '../../data/products';
 
 const FeaturedProducts: React.FC = () => {
+    // Show selected featured products (IDs 5, 6, 7)
+    const featuredList = products.filter(p => [5, 6, 7].includes(p.id));
+
     return (
         <section style={{ padding: '8rem 0', backgroundColor: 'var(--color-white)' }}>
             <div className="container">
@@ -50,56 +25,62 @@ const FeaturedProducts: React.FC = () => {
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '3rem'
+                    gap: '4rem'
                 }}>
-                    {products.map((product, index) => (
-                        <motion.div
-                            key={product.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="product-card" // Added class for CSS targeting
-                            style={{
-                                backgroundColor: 'var(--color-cream)',
-                                borderRadius: 'var(--radius-soft)',
-                                padding: '2.5rem',
-                                overflow: 'hidden',
-                                transition: 'all 0.4s ease',
-                                border: '1px solid transparent'
-                            }}
-                            whileHover={{ y: -8, borderColor: 'rgba(212, 175, 55, 0.3)', boxShadow: 'var(--shadow-indian)' }}
-                        >
-                            {/* Product Image */}
-                            <div style={{
-                                width: '100%',
-                                height: '320px',
-                                marginBottom: '2rem',
-                                overflow: 'hidden',
-                                borderRadius: '8px'
-                            }}>
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
-                                    }}
-                                    className="product-image"
-                                />
-                            </div>
+                    {featuredList.map((product, index) => (
+                        <Link key={product.id} to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                                className="product-card"
+                                style={{
+                                    backgroundColor: 'var(--color-cream)',
+                                    borderRadius: 'var(--radius-soft)',
+                                    padding: '2.5rem',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.4s ease',
+                                    border: '1px solid transparent',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                                whileHover={{ y: -12, borderColor: 'rgba(212, 175, 55, 0.3)', boxShadow: 'var(--shadow-indian)' }}
+                            >
+                                {/* Product Image */}
+                                <div style={{
+                                    width: '100%',
+                                    height: '350px',
+                                    marginBottom: '2rem',
+                                    overflow: 'hidden',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 8px 25px rgba(0,0,0,0.06)'
+                                }}>
+                                    <motion.img
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ duration: 0.8 }}
+                                        src={product.image}
+                                        alt={product.name}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover'
+                                        }}
+                                        className="product-image"
+                                    />
+                                </div>
 
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.6rem', color: 'var(--color-royal-blue)' }}>{product.name}</h3>
-                            <p style={{ color: 'var(--color-gray)', marginBottom: '1.8rem', fontSize: '0.95rem', height: '3em', lineHeight: 1.6 }}>{product.description}</p>
+                                <h3 style={{ fontSize: '1.6rem', marginBottom: '0.6rem', color: 'var(--color-royal-blue)' }}>{product.name}</h3>
+                                <p style={{ color: 'var(--color-gray)', marginBottom: '1.8rem', fontSize: '0.95rem', height: '3em', lineHeight: 1.6, overflow: 'hidden' }}>{product.description}</p>
 
-                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                                <span style={{ fontSize: '1.4rem', color: 'var(--color-black)', fontWeight: 700 }}>{product.price}</span>
-                            </div>
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem', marginTop: 'auto' }}>
+                                    <span style={{ fontSize: '1.5rem', color: 'var(--color-black)', fontWeight: 700 }}>{product.price}</span>
+                                </div>
 
-                            <Button variant="outline" style={{ borderColor: 'var(--color-royal-blue)', color: 'var(--color-royal-blue)' }}>View Details</Button>
-                        </motion.div>
+                                <Button variant="outline" style={{ borderColor: 'var(--color-royal-blue)', color: 'var(--color-royal-blue)', width: '100%', transition: 'all 0.3s ease' }}>View Masterpiece</Button>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>

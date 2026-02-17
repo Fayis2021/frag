@@ -1,16 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/UI/Button';
-
-// Placeholder data
-const allProducts = [
-    { id: 1, name: "Midnight Rose", price: "$145", category: "Floral", color: "#4a0e1c" },
-    { id: 2, name: "Oud Mystique", price: "$180", category: "Woody", color: "#3d2b1f" },
-    { id: 3, name: "Citrus Verbena", price: "$120", category: "Fresh", color: "#9ea836" },
-    { id: 4, name: "Vanilla absolute", price: "$160", category: "Oriental", color: "#d2b48c" },
-    { id: 5, name: "Ocean Breeze", price: "$130", category: "Fresh", color: "#87ceeb" },
-    { id: 6, name: "Spiced Amber", price: "$155", category: "Oriental", color: "#ffbf00" },
-];
+import { products } from '../data/products';
+import { Link } from 'react-router-dom';
 
 const Products: React.FC = () => {
     return (
@@ -23,40 +15,75 @@ const Products: React.FC = () => {
         >
             <div className="container" style={{ padding: '6rem 2rem' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                    <span style={{ color: 'var(--color-terracotta)', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem' }}>The Scent Gallery</span>
-                    <h1 style={{ fontSize: '3.5rem', marginTop: '1rem', color: 'var(--color-royal-blue)', fontStyle: 'italic' }}>Curated Masterpieces</h1>
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        style={{ color: 'var(--color-terracotta)', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem' }}
+                    >
+                        The Scent Gallery
+                    </motion.span>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginTop: '1rem', color: 'var(--color-black)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}
+                    >
+                        Curated Masterpieces
+                    </motion.h1>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
-                    {allProducts.map((product) => (
-                        <div key={product.id} style={{
-                            backgroundColor: 'var(--color-white)',
-                            borderRadius: 'var(--radius-soft)',
-                            padding: '3rem 2.5rem',
-                            textAlign: 'center',
-                            boxShadow: 'var(--shadow-indian)',
-                            transition: 'all 0.4s ease'
-                        }}>
-                            <div style={{
-                                width: '100%',
-                                height: '280px',
-                                backgroundColor: product.color,
-                                marginBottom: '2.5rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                opacity: 0.6,
-                                borderRadius: '8px'
-                            }}>
-                                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '5rem', fontFamily: 'var(--font-display)', fontStyle: 'italic' }}>
-                                    {product.name.charAt(0)}
-                                </span>
-                            </div>
-                            <span style={{ fontSize: '0.8rem', color: 'var(--color-saffron)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{product.category}</span>
-                            <h3 style={{ fontSize: '1.6rem', marginTop: '0.5rem', marginBottom: '0.5rem', color: 'var(--color-royal-blue)' }}>{product.name}</h3>
-                            <p style={{ fontSize: '1.4rem', color: 'var(--color-black)', marginBottom: '2.5rem', fontWeight: 700 }}>{product.price}</p>
-                            <Button variant="primary" style={{ width: '100%', backgroundColor: 'var(--color-royal-blue)', borderColor: 'var(--color-royal-blue)' }}>Reserve Now</Button>
-                        </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                    {products.map((product, index) => (
+                        <motion.div
+                            key={product.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                        >
+                            <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
+                                <div style={{
+                                    backgroundColor: 'var(--color-white)',
+                                    borderRadius: 'var(--radius-soft)',
+                                    overflow: 'hidden',
+                                    boxShadow: 'var(--shadow-soft)',
+                                    transition: 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '100%'
+                                }}
+                                >
+                                    <div style={{
+                                        width: '100%',
+                                        height: '400px',
+                                        backgroundColor: 'var(--color-cream)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        padding: '2rem',
+                                        overflow: 'hidden'
+                                    }}>
+                                        <motion.img
+                                            whileHover={{ scale: 1.1 }}
+                                            transition={{ duration: 0.8 }}
+                                            src={product.image}
+                                            alt={product.name}
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'contain'
+                                            }}
+                                        />
+                                    </div>
+                                    <div style={{ padding: '2.5rem', textAlign: 'center' }}>
+                                        <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-gold)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em' }}>{product.category}</span>
+                                        <h3 style={{ fontSize: '1.8rem', marginTop: '0.5rem', marginBottom: '0.75rem', color: 'var(--color-black)', fontFamily: 'var(--font-display)' }}>{product.name}</h3>
+                                        <p style={{ fontSize: '1.2rem', color: 'var(--color-gray)', marginBottom: '2rem', fontWeight: 500 }}>{product.price}</p>
+                                        <Button variant="outline" style={{ width: '100%' }}>View Scent</Button>
+                                    </div>
+                                </div>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div>

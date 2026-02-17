@@ -52,9 +52,9 @@ const Hero: React.FC = () => {
             {/* Content Layer */}
             <div className="container" style={{ textAlign: 'center', color: 'var(--color-white)', zIndex: 10, position: 'relative' }}>
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2 }}
+                    initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                     <span style={{
                         color: 'rgba(255,255,255,0.8)',
@@ -83,9 +83,9 @@ const Hero: React.FC = () => {
                 </motion.div>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4 }}
+                    initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     style={{
                         fontSize: 'clamp(1rem, 2vw, 1.2rem)',
                         marginBottom: '4.5rem',
@@ -105,12 +105,12 @@ const Hero: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8 }}
+                    transition={{ duration: 1, delay: 1 }}
                     style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}
                 >
                     <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.05, backgroundColor: 'white', color: 'black' }}
+                        whileTap={{ scale: 0.95 }}
                         style={{
                             backgroundColor: 'white',
                             color: 'black',
@@ -127,8 +127,8 @@ const Hero: React.FC = () => {
                         Shop Now
                     </motion.button>
                     <motion.button
-                        whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.05, backgroundColor: 'white', color: 'black' }}
+                        whileTap={{ scale: 0.95 }}
                         style={{
                             backgroundColor: 'transparent',
                             color: 'white',
@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
                             fontWeight: 600,
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
-                            border: '1px solid rgba(255,255,255,0.4)',
+                            border: '1px solid white',
                             cursor: 'pointer',
                             transition: 'all 0.3s ease'
                         }}

@@ -1,21 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import amberGold from '../../assets/images/amber_gold.png';
-import royalOud from '../../assets/images/royal_oud.png';
-import rosePetal from '../../assets/images/rose_petal.png';
-import citrusZest from '../../assets/images/citrus_zest.png';
+import { Link } from 'react-router-dom';
+import { products } from '../../data/products';
 
 const RecentlyArrived: React.FC = () => {
-    const products = [
-        { id: 1, name: "Amber Gold", category: "Oriental", price: "$120", image: amberGold },
-        { id: 2, name: "Royal Oud", category: "Woody", price: "$150", image: royalOud },
-        { id: 3, name: "Rose Petal", category: "Floral", price: "$110", image: rosePetal },
-        { id: 4, name: "Citrus Zest", category: "Fresh", price: "$95", image: citrusZest },
-        { id: 5, name: "Midnight Oud", category: "Exotic", price: "$160", image: royalOud },
-        { id: 6, name: "Saffron Sun", category: "Warm", price: "$130", image: amberGold },
-        { id: 7, name: "Velvet Rose", category: "Floral", price: "$115", image: rosePetal },
-        { id: 8, name: "Ocean Breeze", category: "Fresh", price: "$90", image: citrusZest },
-    ];
+    const [scrollIndex, setScrollIndex] = React.useState(0);
+    const scrollRef = React.useRef<HTMLDivElement>(null);
+
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            const scrollLeft = scrollRef.current.scrollLeft;
+            const width = scrollRef.current.offsetWidth;
+            const index = Math.round(scrollLeft / (width / 4));
+            setScrollIndex(index);
+        }
+    };
 
     return (
         <section className="recently-arrived" style={{ padding: '8rem 0', backgroundColor: 'var(--color-cream)' }}>
@@ -46,71 +45,111 @@ const RecentlyArrived: React.FC = () => {
                         style={{ width: '80px', height: '2px', backgroundColor: 'var(--color-saffron)', margin: '0 auto' }}
                     ></motion.div>
                 </div>
+            </div>
 
-                <div style={{
-                    display: 'flex',
-                    overflowX: 'auto',
-                    gap: '2.5rem',
-                    padding: '1rem 2rem 3rem',
-                    scrollSnapType: 'x mandatory',
-                    scrollbarWidth: 'none', // Firefox
-                    msOverflowStyle: 'none' // IE/Edge
-                }} className="horizontal-scroll">
+            <div style={{
+                width: '100%',
+                padding: '0 5%', // Increased padding
+                boxSizing: 'border-box',
+                position: 'relative'
+            }}>
+                <div
+                    ref={scrollRef}
+                    onScroll={handleScroll}
+                    style={{
+                        display: 'flex',
+                        overflowX: 'auto',
+                        gap: '2.5rem',
+                        padding: '1rem 0 3rem',
+                        scrollSnapType: 'x mandatory',
+                        scrollbarWidth: 'none', // Firefox
+                        msOverflowStyle: 'none' // IE/Edge
+                    }} className="horizontal-scroll">
                     {products.map((product, index) => (
-                        <motion.div
+                        <Link
                             key={product.id}
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ y: -10 }}
-                            style={{
-                                flex: '0 0 320px',
-                                scrollSnapAlign: 'start',
-                                cursor: 'pointer',
-                                position: 'relative',
-                                background: 'white',
-                                borderRadius: '4px',
-                                overflow: 'hidden',
-                                boxShadow: '0 10px 40px rgba(0,0,0,0.08)'
-                            }}
+                            to={`/product/${product.id}`}
+                            style={{ textDecoration: 'none', flex: '0 0 calc(25% - 2rem)', minWidth: '320px' }}
                         >
-                            <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
-                                />
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '20px',
-                                    right: '20px',
-                                    backgroundColor: 'white',
-                                    padding: '0.5rem 1rem',
-                                    fontSize: '0.8rem',
-                                    fontWeight: 600,
-                                    letterSpacing: '0.1em',
-                                    textTransform: 'uppercase'
-                                }}>
-                                    New
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                whileHover={{ y: -15, transition: { duration: 0.4 } }}
+                                style={{
+                                    scrollSnapAlign: 'start',
+                                    cursor: 'pointer',
+                                    position: 'relative',
+                                    background: 'white',
+                                    borderRadius: '4px',
+                                    overflow: 'hidden',
+                                    boxShadow: '0 10px 40px rgba(0,0,0,0.05)'
+                                }}
+                            >
+                                <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
+                                    <motion.img
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ duration: 0.8 }}
+                                        src={product.image}
+                                        alt={product.name}
+                                        style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '1.5rem' }}
+                                    />
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '20px',
+                                        right: '20px',
+                                        backgroundColor: 'white',
+                                        padding: '0.5rem 1rem',
+                                        fontSize: '0.8rem',
+                                        fontWeight: 600,
+                                        letterSpacing: '0.1em',
+                                        textTransform: 'uppercase',
+                                        boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                                    }}>
+                                        New
+                                    </div>
                                 </div>
-                            </div>
-                            <div style={{ padding: '2rem', textAlign: 'center' }}>
-                                <span style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                                    {product.category}
-                                </span>
-                                <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.4rem', fontFamily: 'var(--font-display)' }}>
-                                    {product.name}
-                                </h3>
-                                <p style={{ color: 'var(--color-rose-gold)', fontWeight: 600, fontSize: '1.1rem' }}>
-                                    {product.price}
-                                </p>
-                            </div>
-                        </motion.div>
+                                <div style={{ padding: '2rem', textAlign: 'center' }}>
+                                    <span style={{ color: 'var(--color-gray)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                        {product.category}
+                                    </span>
+                                    <h3 style={{ margin: '0.5rem 0', color: 'var(--color-black)', fontSize: '1.4rem', fontFamily: 'var(--font-display)' }}>
+                                        {product.name}
+                                    </h3>
+                                    <p style={{ color: 'var(--color-saffron)', fontWeight: 600, fontSize: '1.1rem' }}>
+                                        {product.price}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                {/* Scroll Indicators (Dots) */}
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '1rem',
+                    marginTop: '2rem'
+                }}>
+                    {[0, 1].map((dot) => (
+                        <div
+                            key={dot}
+                            style={{
+                                width: dot === Math.floor(scrollIndex / 4) ? '30px' : '10px',
+                                height: '2px',
+                                backgroundColor: dot === Math.floor(scrollIndex / 4) ? 'var(--color-saffron)' : '#D1D1D1',
+                                transition: 'all 0.3s ease',
+                                borderRadius: '2px'
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className="container">
+                <div style={{ textAlign: 'center', marginTop: '4rem' }}>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
